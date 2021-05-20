@@ -1,60 +1,123 @@
+/*  File: authentication.js
+    Description: Contains js for login page. Has Validation and AJAX call to CFC file.
+    Date: ‎May ‎7, ‎2021. 
+*/
+
 function authenticateUser()
 {
-	var check1, check2,check=true;
-       
-        check1=$("#email").val();
-        if(check1=="")
+        //Client side validation
+	var email, password,checke = true, checkp = true;
+        checke = isEmailValid();
+        checkp=isPasswordValid();
+        var call1 = checke && checkp;
+        var call2 = ajaxcall();
+        return (call1 && call2);
+}
+
+function ajaxcall(){
+        var email, password,checke = true, checkp = true;
+        email = $("#email").val();
+        password = $("#passwordl").val();
+        $.ajax({
+        type: 'POST',
+        url: 'CFC/validation.cfc?method=authentication',
+        dataType: "json",
+        data: { arg1: email, arg2: password },
+        cache:false,
+        async:false,
+        success: function(data) 
         {       
-                if($(".red").val()==undefined)
+                if(data.email == 0)
                 {
-                        var txt = $('<p>Please enter an email address</p>');
-                        $("#email").after(txt);
-                        txt.addClass("red");
+                        $("#emessage").text("Please enter a email address");
+                        checke = false;
                 }
-                check= false;
-        }
-        else
-        {
-                $(".red").remove();
-                check1=check1.toLowerCase();
-                if(!(check1.match(/^[a-z0-9_]+@[a-z]+[.]{1}[a-z]{2,3}$/)))
+                else if(data.email == 1)
                 {
-                        var txt = $('<p>Please enter a valid email address</p>');
-                        $("#email").after(txt);
-                        txt.addClass("red");
-                        check= false;
+                        $("#emessage").text("Please enter an valid email address");
+                        checke = false;
+                }
+                else if(data.email == 2)
+                {
+                        $("#emessage").text("Email not registered!");
+                        checke = false;
                 }
                 else{
-                        $(".red").remove();
+                        $("#emessage").text("");
                 }
-        }
         
-        check2=$("#passwordl").val();
-        if(check2=="")
-        {
-                if($(".red").val()==undefined)
+                if(data.password == 0)
                 {
-                        var txt = $('<p>Please enter a password</p>');
-                        $("#passwordl").after(txt);
-                        txt.addClass("red");    
+                        $("#pmessage").text("Please enter a password");
+                        checkp = false;
                 }
-                check= false;
+                else if(data.password == 1)
+                {
+                        $("#pmessage").text("Please enter a valid password");
+                        checkp = false;
+                }
+                else if(data.password == 2)
+                {
+                        $("#pmessage").text("Email id or Password incorrect. Please verify!");
+                        checkp = false;
+                }
+                
+                else{$("#pmessage").text("");}
+        },
+        error: function(){
+                console.log("Problem while checking the fields");
+                checke = false;
+                }
+        });
+        return (checke && checkp);
+}
+
+function isEmailValid()
+{
+        var email,checke = true;
+        email = $("#email").val();
+        if(email=="")
+        {       
+                $("#emessage").text("Please enter an email address");
+                checke = false;
         }
         else
         {
-                $(".red").remove();
-                if(check2.length<8 || check2.search(/[A-Z]/)==-1 || check2.search(/[a-z]/)==-1 || check2.search(/[0-9]/)==-1)
+                email = email.toLowerCase();
+                if(!(email.match(/^[a-z0-9_]+@[a-z]+[.]{1}[a-z]{2,3}$/)))
+                { 
+                        $("#emessage").text("Please enter valid email address");
+                        checke = false;
+                }
+                else{
+                        $("#emessage").text("");
+                        checke = true;
+                }
+        }
+        return checke;
+}
+
+function isPasswordValid(){
+
+        var password, checkp=true;
+        password = $("#passwordl").val();
+        if(password == "")
+        {
+                $("#pmessage").text("Please enter a password");
+                checkp = false;
+        }
+        else
+        {
+                if(password.length<8 || password.search(/[A-Z]/) == -1 || password.search(/[a-z]/) == -1 || password.search(/[0-9]/) == -1)
                 {
-                        var txt = $('<p>Invalid password!</p>');
-                        $("#passwordl").after(txt);
-                        txt.addClass("red");
-                        check=false;
+                        $("#pmessage").text("Please enter a valid password");
+                        checkp = false;
                 }
                 else
                 {
-                        $(".red").remove();
+                        $("#pmessage").text("");
+                        checkp = true;
                 }
         }
-        
-        return check;
+        return checkp;
 }

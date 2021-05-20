@@ -1,0 +1,29 @@
+Included Files
+1) CFC
+	A) mailit.cfc
+	B) validation.cfc
+2) CSS
+	A) style.css
+	B) style2.css
+	C) style3.css
+3) errors (should be included in CFIDE/administrator/templates)
+	A) globalErrorHandler.cfm
+	B) missingTemplate.cfm
+4) Images
+	A) image1.png
+	B) image2.png
+	C) image3.png
+	D) image4.png
+5) jQuery
+	A) authentication.js
+	B) email.js
+	C) validation.js
+6) User
+	A) actionPage.cfm
+	B) footer.cfm
+	C) header.cfm
+	D) header2.cfm
+	E) home.cfm
+	F) register.cfm
+7) Application.cfc
+8) index.cfm

@@ -1,8 +1,75 @@
+/*  File: style2.css
+    Description: Contains css for home page.
+    Date: ‎May ‎6, ‎2021. 
+*/
 .inbox{
         margin:auto; 
-        height:200px;
+        padding: 20px;
+        width:90%;
 }
-.spinner-border{
+.second
+{
+        margin: 20px auto;
+        padding: 20px 10px;
+        background-color:skyblue;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.row
+{
+        margin-bottom: 10px;
+}
+
+label
+{
+        font-size: 20px;
+        margin-bottom: 5px;
+}
+
+/* #spinner
+{
+        position: absolute;
+        left:50%;
+        top:50%;
+} */
+
+input[type="text"],input[type="password"],input[type="email"]
+{
+        width: 80%;
+}
+
+/* .spinner-border{
         height:50px; 
         width:50px;
+} */
+.footer1
+{
+        position: fixed;
+        bottom: 0;
+        left:0px;
+        height: 50px;
+        width:100%;
+        padding-top: 10px;
+}
+.header2
+{
+        position: absolute;
+        top: 0;
+        font-size: large;
+        height: 50px;
+        width:100%;
+}
+
+#lfooter
+{
+        float:left;
+        display: inline;
+}
+#rfooter{
+        float:right;
+        display: inline;
+        font-size:14px;
+} 
+.red{
+        color:red;
 }
