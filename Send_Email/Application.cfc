@@ -95,9 +95,10 @@ component
 		output="true"
 		hint="Fires when an exception occures that is not caught by a try/catch."
 	{
+		location("\errors\globalErrorHandler.cfm", "false", 301);
         	WriteLog(type="Error", file="logger", application="yes", text="#Exception#")
 		return;
-    	}
+	}
 	    
 	function onMissingTemplate(required string template)
 	    access="public"
