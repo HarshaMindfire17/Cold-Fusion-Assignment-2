@@ -18,7 +18,7 @@
                                 <p>Error</p>
                         </div>
                         <div class="text-center second" >
-                                Sorry! Error on my side! Please contact Administrator.
+                                Sorry! Some error occured! Please contact Administrator.
                                 <meta http-equiv = "refresh" content = "4;url = /index.cfm" />
                         </div>
                 </div>

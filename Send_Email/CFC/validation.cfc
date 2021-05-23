@@ -84,7 +84,8 @@
 
                 <cfargument name = "arg1" type = "string" default = "" hint = "email id">
                 <cfargument name = "arg2" type = "string" default = "" hint = "password">
-
+                <cfargument name = "arg3" type = "string" default = "" hint = "remember me">
+                <cfargument name = "arg4" type = "string" default = "" hint = "forget me">
                 <!--- If email field is not empty, check if it is valid or not 
                         If yes, check if user exists in database.
                 --->     
@@ -131,9 +132,17 @@
                                                                 password ="#ARGUMENTS.arg2#"
                                                                 roles = "admin"> 
                                                 </cflogin>
-                                                <cfcookie name = "user" value = "#SESSION.newUser#" httpOnly = true encodevalue = "no" expires = "2">
-                                                <cfcookie name = "email" value = "#ARGUMENTS.arg1#" httpOnly = true encodevalue = "no" expires = "2">
-                                                <cfcookie name = "password" value = "#ARGUMENTS.arg2#" httpOnly = true encodevalue = "no" expires = "2">
+
+                                                <cfif ARGUMENTS.arg4>
+                                                        <cfcookie name="user" expires="now">
+                                                        <cfcookie name="email" expires="now">
+                                                        <cfcookie name="password" expires="now">
+                                                <cfelseif ARGUMENTS.arg3>               
+                                                        <cfcookie name = "user" value = "#SESSION.newUser#" httpOnly = true encodevalue = "no" expires = "2">
+                                                        <cfcookie name = "email" value = "#ARGUMENTS.arg1#" httpOnly = true encodevalue = "no" expires = "2">
+                                                        <cfcookie name = "password" value = "#ARGUMENTS.arg2#" httpOnly = true encodevalue = "no" expires = "2">
+                                                </cfif>
+                                                
                                                 <cfelse> 
                                                         <cfset passwordFlag = 2>
                                         </cfif>  

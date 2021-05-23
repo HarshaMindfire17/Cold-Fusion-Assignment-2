@@ -16,10 +16,6 @@
                         <cfif isDefined("form.test")> 
                                 <cflogout> 
                                 <cfset sessionInvalidate()>
-
-                                <cfcookie name="user" expires="now">
-                                <cfcookie name="email" expires="now">
-                                <cfcookie name="password" expires="now"> 
                                 <meta http-equiv = "refresh" content = "0;url = /index.cfm" />
                                 <!--- <div id="spinner" class="d-flex justify-content-center animate__animated animate__fadeIn">
                                         <div class="spinner-border text-primary" role="status">

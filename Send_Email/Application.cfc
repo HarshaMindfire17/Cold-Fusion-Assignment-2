@@ -7,8 +7,8 @@ component
      this.name="Send_Email";
      this.datasource="Receivers";
      this.sessionmanagement="Yes";
-     this.ApplicationTimeout = CreateTimeSpan( 0, 0, 10,0);
-     this.SessionTimeout = CreateTimeSpan( 0, 0, 0,10);
+     this.ApplicationTimeout = CreateTimeSpan( 0, 0, 30,0);
+     this.SessionTimeout = CreateTimeSpan( 0, 0, 10,0);
      this.mappings=structNew();
 
      function OnApplicationStart()

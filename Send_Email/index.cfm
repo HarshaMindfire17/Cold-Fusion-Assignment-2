@@ -20,23 +20,6 @@ Global ErrorHandler for onError--->
                                 <div class="text-center" >
                                         Enter Login Details 
                                 </div>
-                                <cftry>
-                                        <cfset cookiemail="">
-                                        <cfset cookiepass="">
-                                        <cfset cookies = getPageContext().getRequest().getCookies()>
-                                                <cfloop index="c" array="#cookies#">            
-                                                                <cfif ToString(c.getName()) EQ "EMAIL">
-                                                                        <cfset cookiemail=c.getValue()>
-                                                                </cfif>
-                                                                <cfif ToString(c.getName()) EQ "PASSWORD">
-                                                                        <cfset cookiepass=c.getValue()>
-                                                                </cfif>
-                                                </cfloop>  
-                                    
-                                        <cfcatch>
-                                                Please enable cookies
-                                        </cfcatch>
-                                </cftry> 
                                 
                                 <div class="second col-xs-10">                                          
                                         <form name="myform" onsubmit="return authenticateUser()" action="User/actionPage.cfm?check=0" method="post"> 
@@ -70,7 +53,42 @@ Global ErrorHandler for onError--->
                                                                 <p id="pmessage" class="red"></p>
                                                         </div> 
                                                 </div>
-                                             
+                                                <div class="row col-md-8 offset-md-4">
+                                                        <cftry>
+                                                                <cfset cookiemail="">
+                                                                <cfset cookiepass="">
+                                                                <cfset cookies = getPageContext().getRequest().getCookies()>
+                                                                <cfloop index="c" array="#cookies#">            
+                                                                        <cfif ToString(c.getName()) EQ "EMAIL">
+                                                                                <cfset cookiemail=c.getValue()>
+                                                                        </cfif>
+                                                                        <cfif ToString(c.getName()) EQ "PASSWORD">
+                                                                                <cfset cookiepass=c.getValue()>
+                                                                        </cfif>
+                                                                </cfloop>  
+                                                                
+                                                                <cfif cookiemail eq "">
+                                                                        <cfthrow type="No cookies enabled">
+                                                                <cfelse>
+                                                                        <input
+                                                                        type="checkbox"
+                                                                        id="forget"
+                                                                        checked=false
+                                                                        name="forget">
+                                                                        <label for="forget" id="forgetid">Forget me</label>
+                                                                </cfif> 
+                                                                <cfcatch>
+                                                                        
+                                                                        <input
+                                                                        type="checkbox"
+                                                                        id="remember"
+                                                                        checked=true
+                                                                        name="remember">
+                                                                        <label for="remember" id="remid">Remember me</label>   
+                                                
+                                                                </cfcatch>
+                                                        </cftry> 
+                                                </div>
                                                 <button type="submit" id="submit" class="btn btn-success col-md-2 offset-md-9" name="submit" >Submit</button>   
                                         </form> 
                                         

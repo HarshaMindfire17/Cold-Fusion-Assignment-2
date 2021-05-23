@@ -15,14 +15,19 @@ function authenticateUser()
 }
 
 function ajaxcall(){
-        var email, password,checke = true, checkp = true;
+        var email, password, remember = true,forget = false, checke = true, checkp = true;
         email = $("#email").val();
         password = $("#passwordl").val();
+        if($('#remember').length){
+                remember = $("#remember").is(":checked");}
+        else if($('#forget').length){
+                forget = $("#forget").is(":checked");}
+        
         $.ajax({
         type: 'POST',
         url: 'CFC/validation.cfc?method=authentication',
         dataType: "json",
-        data: { arg1: email, arg2: password },
+        data: { arg1 : email, arg2 : password, arg3 : remember, arg4 : forget},
         cache:false,
         async:false,
         success: function(data) 
