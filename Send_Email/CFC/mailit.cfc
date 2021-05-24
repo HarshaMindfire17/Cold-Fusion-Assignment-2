@@ -14,9 +14,9 @@
         <cffunction name = "validation" access = "remote" returntype = "any" returnformat = "JSON"
         hint = "Validates email ids entered and sends mails to the receipients" output = "false">
 
-                <cfargument name = "arg1" type = "any" default = "" hint = "mail ids">
-                <cfargument name = "arg2" type = "any" default = "" hint = "subject of mail">
-                <cfargument name = "arg3" type = "any" default = "" hint = "body of mail">
+                <cfargument name = "arg1" type = "string" default = "" hint = "mail ids">
+                <cfargument name = "arg2" type = "string" default = "" hint = "subject of mail">
+                <cfargument name = "arg3" type = "string" default = "" hint = "body of mail">
                 <cfset emailFlag = 0>
 
                 <cfif ARGUMENTS.arg1 neq "">

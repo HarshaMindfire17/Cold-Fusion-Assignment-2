@@ -1,10 +1,9 @@
-<!--- File: index.cfm
-    Description: Has interface for user login.
-    Date: ‎May ‎6, ‎2021. 
+<!---   File: index.cfm
+        Description: Has interface for user login.
+        Date: ‎May ‎6, ‎2021. 
  --->
- <!--- Alert/notification if session timed out after submit button is clicked
-Global ErrorHandler for onError--->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  
+
+<!DOCTYPE HTML>  
 <html>
         <head>
                 <meta charset="utf-8">
@@ -22,7 +21,7 @@ Global ErrorHandler for onError--->
                                 </div>
                                 
                                 <div class="second col-xs-10">                                          
-                                        <form name="myform" onsubmit="return authenticateUser()" action="User/actionPage.cfm?check=0" method="post"> 
+                                        <form name="myform" onsubmit="return authenticateUser()" action="User/actionPage.cfm" method="post"> 
                                                 <div class="row col-md-12">
                                                         <div class="col-md-4">
                                                                 <label for="email">Email</label>
@@ -73,7 +72,6 @@ Global ErrorHandler for onError--->
                                                                         <input
                                                                         type="checkbox"
                                                                         id="forget"
-                                                                        checked=false
                                                                         name="forget">
                                                                         <label for="forget" id="forgetid">Forget me</label>
                                                                 </cfif> 
@@ -82,7 +80,7 @@ Global ErrorHandler for onError--->
                                                                         <input
                                                                         type="checkbox"
                                                                         id="remember"
-                                                                        checked=true
+                                                                        checked
                                                                         name="remember">
                                                                         <label for="remember" id="remid">Remember me</label>   
                                                 
@@ -106,7 +104,6 @@ Global ErrorHandler for onError--->
                         </cfoutput>
                         $("#email").val(jsmail);
                         $("#passwordl").val(jspass);
-
                 </script>
         </body>
 </html>

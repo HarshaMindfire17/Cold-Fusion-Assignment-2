@@ -25,7 +25,7 @@ function ajaxcall(){
         
         $.ajax({
         type: 'POST',
-        url: 'CFC/validation.cfc?method=authentication',
+        url: 'CFC/authentication.cfc?method=authentication',
         dataType: "json",
         data: { arg1 : email, arg2 : password, arg3 : remember, arg4 : forget},
         cache:false,
@@ -58,7 +58,7 @@ function ajaxcall(){
                 }
                 else if(data.password == 1)
                 {
-                        $("#pmessage").text("Please enter a valid password");
+                        $("#pmessage").text("Password should contain a lower case letter, an upper case letter, a digit and atleast 8 characters");
                         checkp = false;
                 }
                 else if(data.password == 2)
@@ -115,7 +115,7 @@ function isPasswordValid(){
         {
                 if(password.length<8 || password.search(/[A-Z]/) == -1 || password.search(/[a-z]/) == -1 || password.search(/[0-9]/) == -1)
                 {
-                        $("#pmessage").text("Please enter a valid password");
+                        $("#pmessage").text("Password should contain a lower case letter, an upper case letter, a digit and atleast 8 characters");
                         checkp = false;
                 }
                 else

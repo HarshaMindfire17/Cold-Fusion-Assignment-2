@@ -2,7 +2,7 @@
     Description: Has interface for user registration.
     Date: ‎May ‎6, ‎2021. 
  --->
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
         <head>
                 <meta charset="utf-8">
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="second col-xs-10">
 
-                                        <form name="myform" onsubmit="return validateData()" action="actionPage.cfm?check=1" method="POST">
+                                        <form name="myform" onsubmit="return validateData()" action="actionPage.cfm" method="POST">
                                                 <div class="row col-md-12">
                                                         <div class="col-md-4">
                                                                 <label for="user">Username</label>

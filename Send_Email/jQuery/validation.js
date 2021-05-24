@@ -26,7 +26,7 @@ function ajaxcall(){
         type: 'POST',
         url: '/CFC/validation.cfc?method=validation',
         dataType: "json",
-        data: { arg1: email, arg2: password1, arg3: password2,arg4:user },
+        data: { arg1: email, arg2: password1, arg3: password2, arg4:user },
         cache:false,
         async:false,
         success: function(data) 
@@ -115,7 +115,8 @@ function isEmailValid()
 function isPassword1Valid()
 {
         var password1;
-        password1 = $("#passwordl").val();       
+        password1 = $("#passwordl").val();   
+        password2 = $("#passwordc").val();    
         if(password1 == "")
         {
                 $("#p1message").text("Please enter password");
@@ -130,6 +131,19 @@ function isPassword1Valid()
                 }
                 else
                 {
+                        if(password2 != "")
+                        {
+                                if(password1 != password2)
+                                {
+                                        $("#p2message").text("Passwords are not matching!");
+                                        $("#passwordc").val("");
+                                        return false;
+                                }
+                                else
+                                {
+                                        $("#p2message").text("");
+                                }
+                        }
                         $("#p1message").text("");
                         return true;
                 }
