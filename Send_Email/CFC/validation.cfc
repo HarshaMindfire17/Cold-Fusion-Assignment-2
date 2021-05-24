@@ -67,7 +67,7 @@
                         </cflogin> 
                 </cfif>
 
-                <cfset var returnValue = '{"email":"#emailFlag#","password1":"#passwordFlag#","password2":"#confirmationFlag#","user":"#u#"}'> 
+                <cfset var returnValue = '{"email":"#emailFlag#","password1":"#passwordFlag#","password2":"#confirmationFlag#","user":"#userFlag#"}'> 
                 <cfreturn returnValue>
         </cffunction>
 </cfcomponent>

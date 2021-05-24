@@ -14,12 +14,15 @@ function authenticateUser()
         return (call1 && call2);
 }
 
-function ajaxcall(){
+function ajaxcall()
+{
         var email, password, remember = true,forget = false, checke = true, checkp = true;
         email = $("#email").val();
         password = $("#passwordl").val();
-        if($('#remember').length){
-                remember = $("#remember").is(":checked");}
+        if($('#remember').length)
+        {
+                remember = $("#remember").is(":checked");
+        }
         else if($('#forget').length){
                 forget = $("#forget").is(":checked");}
         
