@@ -2,7 +2,7 @@
     Description: Has interface for sending an email.
     Date: ‎May ‎6, ‎2021. 
  --->
-<!--- after clicking submit button , check if session is terminated, session.newName--->
+<!DOCTYPE HTML>
 <html>
         <head>
                 <meta charset="utf-8">
