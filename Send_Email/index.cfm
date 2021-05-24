@@ -73,7 +73,6 @@ Global ErrorHandler for onError--->
                                                                         <input
                                                                         type="checkbox"
                                                                         id="forget"
-                                                                        checked=false
                                                                         name="forget">
                                                                         <label for="forget" id="forgetid">Forget me</label>
                                                                 </cfif> 
@@ -82,7 +81,7 @@ Global ErrorHandler for onError--->
                                                                         <input
                                                                         type="checkbox"
                                                                         id="remember"
-                                                                        checked=true
+                                                                        checked
                                                                         name="remember">
                                                                         <label for="remember" id="remid">Remember me</label>   
                                                 
