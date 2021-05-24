@@ -2,10 +2,6 @@
     Description: Has interface for sending an email.
     Date: ‎May ‎6, ‎2021. 
  --->
-<<<<<<< HEAD
-<!--- after clicking submit button , check if session is terminated, session.newName--->
-=======
->>>>>>> 54579946ad7b16b50204f4a097f3a4468f6331ab
 <!DOCTYPE HTML>
 <html>
         <head>

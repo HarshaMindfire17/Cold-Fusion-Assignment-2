@@ -22,7 +22,15 @@
                 <cfif ARGUMENTS.arg1 eq "">
                         <cfset emailFlag = 0>
                         <cfelseif isValid("regex", ARGUMENTS.arg1,"^[a-z0-9_]+@[a-z]+[.]{1}[a-z]{2,3}$")>
-                                <cfset emailFlag = 2>
+                
+                                <cfquery datasource = "Receivers" name = "rsPage2">
+                                        SELECT COUNT(*) AS userExists FROM Users WHERE email = <CFQUERYPARAM VALUE = #ARGUMENTS.arg1#>;
+                                </cfquery>
+                                <cfif rsPage2.userExists neq 0>
+                                        <cfset emailFlag = 3>
+                                <cfelse>
+                                        <cfset emailFlag = 2>
+                                </cfif>
                         <cfelse>
                                 <cfset emailFlag = 1>
                 </cfif>

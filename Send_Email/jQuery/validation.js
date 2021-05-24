@@ -49,6 +49,11 @@ function ajaxcall(){
                         $("#emessage").text("Please enter a valid email address");
                         checke = false;
                 }
+                else if(data.email == 3)
+                {
+                        $("#emessage").text("User with same email address already exists!");
+                        checke = false;
+                }
                 else{
                         $("#emessage").text("");
                 }
